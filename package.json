@@ -16,9 +16,20 @@
     "babelify": "^8.0.0",
     "browserify": "^16.2.2",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-fontello": "^0.4.6",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
   }
 }

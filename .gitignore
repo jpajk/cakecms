@@ -41,3 +41,4 @@ nbproject/*
 provision.sh
 Vagrantfile
 /node_modules/
+/webroot/bootstrap_u_i/*
