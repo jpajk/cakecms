@@ -36,8 +36,6 @@ class AppView extends UIView
      */
     public function initialize()
     {
-        $this->initializeUI([
-            'layout' => 'default'
-        ]);
+        $this->initializeUI(['layout' => 'default']);
     }
 }

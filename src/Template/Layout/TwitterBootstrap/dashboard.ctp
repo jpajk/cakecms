@@ -1,5 +1,8 @@
 <?php
-/* @var $this \Cake\View\View */
+/**
+ * @var $this \Cake\View\View
+ * @var array|null $currentUser
+ */
 use Cake\Core\Configure;
 
 $this->Html->css('BootstrapUI.dashboard', ['block' => true]);
@@ -11,11 +14,13 @@ $this->start('tb_body_start');
         <?= $this->Html->link(Configure::read('App.title'), '/', ['class' => 'navbar-brand col-sm-3 col-md-2 mr-0']) ?>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
 
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
-            </li>
-        </ul>
+        <?php if ($currentUser): ?>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>">Sign out</a>
+                </li>
+            </ul>
+        <?php endif; ?>
     </nav>
 
     <div class="container-fluid">
