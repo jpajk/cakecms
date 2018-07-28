@@ -1,6 +1,7 @@
 # CakePHP specific files #
 ##########################
 /config/app.php
+/config/misc.php
 /config/.env
 /logs/*
 /tmp/*
@@ -42,3 +43,6 @@ provision.sh
 Vagrantfile
 /node_modules/
 /webroot/bootstrap_u_i/*
+npm-debug.log
+/webroot/css/*
+/webroot/fonts/*

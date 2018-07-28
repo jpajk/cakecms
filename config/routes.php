@@ -18,10 +18,10 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-use Cake\Core\Plugin;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
+use Cake\Core\Configure;
 
 /**
  * The default class to use for all routes
@@ -49,13 +49,23 @@ Router::defaultRouteClass(DashedRoute::class);
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-
-    $routes->fallbacks(DashedRoute::class);
 });
 
-/**
- * @todo generate route from settings
- */
-Router::scope('/panel', function (RouteBuilder $routes) {
+$panel_route = '/panel';
+
+try {
+    Configure::load('misc');
+    $config = Configure::read('Misc');
+
+    if (!isset($config['panel_route'])) {
+        throw new Exception();
+    }
+
+    $panel_route = '/' . $config['panel_route'];
+} catch (Exception $e) {
+    trigger_error('Generate panel route for secured admin panel.');
+}
+
+Router::scope($panel_route, function (RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 });
